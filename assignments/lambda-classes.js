@@ -7,7 +7,7 @@ class Person {
     this.location = attrs.location;
   }
   speak() {
-    console.log(`Hello, my name is ${this.name}, I am from ${this.location}.`);
+    console.log(`Hello, my name is ${this.name}. I am from ${this.location}.`);
   }
 }
 
@@ -58,6 +58,18 @@ class ProjectManager extends Instructor {
   }
 }
 
+const drogo = new Person({
+  name: "Khal Drogo",
+  age: 30,
+  location: "Vaes Dothrak"
+});
+
+const cersei = new Person({
+  name: "Cersei",
+  age: 31,
+  location: `King's Landing`
+});
+
 const fred = new Instructor({
   name: "Fred",
   location: "Bedrock",
@@ -67,4 +79,69 @@ const fred = new Instructor({
   catchPhrase: `Don't forget the homies`
 });
 
-fred.speak();
+const brit = new Instructor({
+  name: "Brit",
+  location: "Ottawa",
+  age: `I'll never tell`,
+  favLanguage: "CSS",
+  specialty: "Front-end",
+  catchPhrase: `Let's git "this" party started`
+});
+
+const jonathan = new Student({
+  name: "Jonathan",
+  age: 36,
+  location: "Brooklyn",
+  previousBackground: "high school teacher",
+  className: "WEB22",
+  favSubjects: ["HTML", "CSS", "JavaScript"]
+});
+
+const samwell = new Student({
+  name: "Samwell",
+  age: 25,
+  location: "The Citadel",
+  previousBackground: `The Night's Watch`,
+  className: "DS1",
+  favSubjects: ["Materials Science", "Greyscale Remedies"]
+});
+
+const brandon = new ProjectManager({
+  name: "Brandon",
+  location: "Chicago",
+  age: "unknown",
+  favLanguage: "JavaScript",
+  specialty: "Full-Stack",
+  catchPhrase: "Stand up! Hop in when you can!",
+  gradClassName: 'CS1',
+  favInstructor: 'Brit'
+});
+
+const amanda = new ProjectManager({
+  name: "Amanda",
+  location: "n/a",
+  age: "n/a",
+  favLanguage: "JavaScript",
+  specialty: "Full-Stack",
+  catchPhrase: "Here is your JavaScript code challenge for today!",
+  gradClassName: 'CS1',
+  favInstructor: 'Brit'
+});
+
+drogo.speak();
+cersei.speak();
+
+console.log(fred.catchPhrase);
+console.log(brit.catchPhrase);
+
+jonathan.listsSubjects();
+samwell.listsSubjects();
+
+jonathan.pRAssignment("JavaScript-III");
+samwell.pRAssignment("JavaScript-II");
+
+jonathan.sprintChallenge("JavaScript-III");
+samwell.sprintChallenge("JavaScript-II");
+
+brandon.standUp('web22_brandon');
+amanda.debugsCode(samwell, 'JavaScript-II');
