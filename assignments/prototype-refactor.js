@@ -204,7 +204,7 @@ const runGame = (hero, villain, location) => {
   }
 };
 
-runGame(johnWick, boban, "in the New York Public Library");
+// runGame(johnWick, boban, "in the New York Public Library");
 
 const jonSnow = new Hero({
   createdAt: new Date(),
