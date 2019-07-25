@@ -24,6 +24,13 @@ class Instructor extends Person {
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}!`);
   }
+  randomPoints(student) {
+    let points = Math.floor(Math.random() * 41 - 20);
+    student.grade += points;
+    console.log(
+      `${this.name} changes ${student.name}'s grade by ${points} points!`
+    );
+  }
 }
 
 class Student extends Person {
@@ -32,6 +39,7 @@ class Student extends Person {
     this.previousBackground = studAttrs.previousBackground;
     this.className = studAttrs.className;
     this.favSubjects = studAttrs.favSubjects;
+    this.grade = studAttrs.grade;
   }
   listsSubjects() {
     this.favSubjects.forEach(element => console.log(element));
@@ -41,6 +49,13 @@ class Student extends Person {
   }
   sprintChallenge(subject) {
     console.log(`${this.name} has begun Sprint Challenge on ${subject}.`);
+  }
+  shareGrade() {
+    console.log(`${this.name}'s grade is ${this.grade}.`);
+  }
+  graduate() {
+    this.shareGrade();
+    console.log(this.grade > 70 ? `Cue Pomp and Circumstance... ${this.name} is ready to graduate from Lambda School!` : `Sorry, ${this.name} isn't ready to graduate from Lambda School... Go back and increase your score!`);
   }
 }
 
@@ -94,7 +109,8 @@ const jonathan = new Student({
   location: "Brooklyn",
   previousBackground: "high school teacher",
   className: "WEB22",
-  favSubjects: ["HTML", "CSS", "JavaScript"]
+  favSubjects: ["HTML", "CSS", "JavaScript"],
+  grade: Math.floor(Math.random() * 100 + 1)
 });
 
 const samwell = new Student({
@@ -103,7 +119,8 @@ const samwell = new Student({
   location: "The Citadel",
   previousBackground: `The Night's Watch`,
   className: "DS1",
-  favSubjects: ["Materials Science", "Greyscale Remedies"]
+  favSubjects: ["Materials Science", "Greyscale Remedies"],
+  grade: Math.floor(Math.random() * 100 + 1)
 });
 
 const brandon = new ProjectManager({
@@ -113,8 +130,8 @@ const brandon = new ProjectManager({
   favLanguage: "JavaScript",
   specialty: "Full-Stack",
   catchPhrase: "Stand up! Hop in when you can!",
-  gradClassName: 'CS1',
-  favInstructor: 'Brit'
+  gradClassName: "CS1",
+  favInstructor: "Brit"
 });
 
 const amanda = new ProjectManager({
@@ -124,24 +141,29 @@ const amanda = new ProjectManager({
   favLanguage: "JavaScript",
   specialty: "Full-Stack",
   catchPhrase: "Here is your JavaScript code challenge for today!",
-  gradClassName: 'CS1',
-  favInstructor: 'Brit'
+  gradClassName: "CS1",
+  favInstructor: "Brit"
 });
 
-drogo.speak();
-cersei.speak();
+// drogo.speak();
+// cersei.speak();
 
-console.log(fred.catchPhrase);
-console.log(brit.catchPhrase);
+// console.log(fred.catchPhrase);
+// console.log(brit.catchPhrase);
 
-jonathan.listsSubjects();
-samwell.listsSubjects();
+// jonathan.listsSubjects();
+// samwell.listsSubjects();
 
-jonathan.pRAssignment("JavaScript-III");
-samwell.pRAssignment("JavaScript-II");
+// jonathan.pRAssignment("JavaScript-III");
+// samwell.pRAssignment("JavaScript-II");
 
-jonathan.sprintChallenge("JavaScript-III");
-samwell.sprintChallenge("JavaScript-II");
+// jonathan.sprintChallenge("JavaScript-III");
+// samwell.sprintChallenge("JavaScript-II");
 
-brandon.standUp('web22_brandon');
-amanda.debugsCode(samwell, 'JavaScript-II');
+// brandon.standUp('web22_brandon');
+// amanda.debugsCode(samwell, 'JavaScript-II');
+
+jonathan.shareGrade();
+brit.randomPoints(jonathan);
+brandon.randomPoints(jonathan);
+jonathan.graduate();
