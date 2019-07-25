@@ -34,9 +34,9 @@ class Student extends Person {
     this.favSubjects = studAttrs.favSubjects;
   }
   listsSubjects() {
-      this.favSubjects.forEach(element => console.log(element));
+    this.favSubjects.forEach(element => console.log(element));
   }
-  PRAssignment(subject) {
+  pRAssignment(subject) {
     console.log(`${this.name} has submitted a PR for ${subject}.`);
   }
   sprintChallenge(subject) {
@@ -44,7 +44,19 @@ class Student extends Person {
   }
 }
 
-class ProjectManager extends Instructor {}
+class ProjectManager extends Instructor {
+  constructor(pmAttrs) {
+    super(pmAttrs);
+    this.gradClassName = pmAttrs.gradClassName;
+    this.favInstructor = pmAttrs.favInstructor;
+  }
+  standUp(channel) {
+    console.log(`${this.name} announces to ${channel}, @channel standy times!`);
+  }
+  debugsCode(student, subject) {
+    console.log(`${this.name} debugs ${student.name}'s code on ${subject}.`);
+  }
+}
 
 const fred = new Instructor({
   name: "Fred",
